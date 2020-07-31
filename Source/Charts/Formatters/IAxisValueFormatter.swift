@@ -13,6 +13,7 @@ import Foundation
 
 /// An interface for providing custom axis Strings.
 @objc(IChartAxisValueFormatter)
+
 public protocol IAxisValueFormatter: class
 {
     
@@ -26,5 +27,19 @@ public protocol IAxisValueFormatter: class
     /// - Returns: The customized label that is drawn on the x-axis.
     func stringForValue(_ value: Double,
                         axis: AxisBase?) -> String
+
+}
+
+extension IAxisValueFormatter {
+
+    /// Format values based on market string
+    /// - Parameters:
+    ///   - value: the value that is currently being drawn
+    ///   - market: the market the value should adhere to
+    ///   - axis: the axis that the value belongs to
+    /// - Returns: The customized label that is drawn on the x-axis.
+    func stringForValue(_ value: Double, market: String, axis: AxisBase) -> String {
+        return ""
+    }
     
 }
