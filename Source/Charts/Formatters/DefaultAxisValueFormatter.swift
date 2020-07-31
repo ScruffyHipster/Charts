@@ -17,8 +17,14 @@ open class DefaultAxisValueFormatter: NSObject, IAxisValueFormatter
     public typealias Block = (
         _ value: Double,
         _ axis: AxisBase?) -> String
+
+    public typealias MarketBlock = (
+        _ value: Double,
+        _ market: String,
+        _ axis: AxisBase?) -> String
     
     @objc open var block: Block?
+    @objc open var marketBlock: MarketBlock?
     
     @objc open var hasAutoDecimals: Bool = false
     
@@ -93,6 +99,14 @@ open class DefaultAxisValueFormatter: NSObject, IAxisValueFormatter
     {
         if let block = block {
             return block(value, axis)
+        } else {
+            return formatter?.string(from: NSNumber(floatLiteral: value)) ?? ""
+        }
+    }
+
+    public func stringForValue(_ value: Double, market: String, axis: AxisBase?) -> String {
+        if let block = marketBlock {
+            return block(value, market, axis)
         } else {
             return formatter?.string(from: NSNumber(floatLiteral: value)) ?? ""
         }

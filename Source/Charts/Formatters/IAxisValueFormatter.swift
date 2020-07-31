@@ -28,9 +28,7 @@ public protocol IAxisValueFormatter: class
     func stringForValue(_ value: Double,
                         axis: AxisBase?) -> String
 
-}
 
-extension IAxisValueFormatter {
 
     /// Format values based on market string
     /// - Parameters:
@@ -38,8 +36,8 @@ extension IAxisValueFormatter {
     ///   - market: the market the value should adhere to
     ///   - axis: the axis that the value belongs to
     /// - Returns: The customized label that is drawn on the x-axis.
-    func stringForValue(_ value: Double, market: String, axis: AxisBase) -> String {
-        return ""
-    }
-    
+    func stringForValue(_ value: Double,
+                        market: String,
+                        axis: AxisBase?) -> String
+
 }
