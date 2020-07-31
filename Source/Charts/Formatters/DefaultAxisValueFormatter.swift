@@ -88,6 +88,13 @@ open class DefaultAxisValueFormatter: NSObject, IAxisValueFormatter
         
         self.block = block
     }
+
+    @objc public init(marketBlock: @escaping MarketBlock)
+      {
+          super.init()
+
+          self.marketBlock = marketBlock
+      }
     
     @objc public static func with(block: @escaping Block) -> DefaultAxisValueFormatter?
     {
