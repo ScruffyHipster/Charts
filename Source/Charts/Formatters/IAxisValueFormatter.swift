@@ -41,3 +41,11 @@ public protocol IAxisValueFormatter: class
                         axis: AxisBase?) -> String
 
 }
+
+extension IAxisValueFormatter {
+     func stringForValue(_ value: Double,
+                           market: String,
+                           axis: AxisBase?) -> String {
+        return ""
+    }
+}
